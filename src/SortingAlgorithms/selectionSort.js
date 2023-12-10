@@ -17,7 +17,7 @@ COMPLEXITY ANALYSIS:
 ADVANTAGES:
 - Simplicty, ease of understanding
 - Works well with small datasets
-- IN-SITU  as it does not require extra space
+- IN-SITU  as it does not require extra memory space for temporary storage
 
 DISADVANTAGES:
 - Time complexity of O(N^2) in average and worst case
@@ -26,15 +26,16 @@ DISADVANTAGES:
 
 */
 
+/* IN JAVASCRIPT */
 // Swap array elements
-function swap(arr, xp, yp)
+function swap(arr, xp, yp) 
 {
     var temp = arr[xp];
     arr[xp] = arr[yp];
     arr[yp] = temp;
 }
 
-// Algorithm implementation
+// Iterative implementation
 function selectionSort(arr, n)
 {
     var i, j, min_idx;
@@ -43,28 +44,98 @@ function selectionSort(arr, n)
     for (i = 0; i < n-1; i++)
     {
         // Find the minimum element in unsorted subarray
-        min_idx = i;
+        let min_idx = i;
+
         for (j = i + 1; j < n; j++)
-        if (arr[j] < arr[min_idx])
-            min_idx = j;
+            if (arr[j] < arr[min_idx])
+                min_idx = j;
 
         // Swap the found minimum element with first element
         swap(arr, min_idx, i);
     }
 }
 
-// Print the freshly sorted array
-function printArray(arr, size)
+function recursiveSelectionSort(arr, i, n)
 {
-    var i;
-    for (i = 0; i < size; i++)
-        document.write(arr[i] + " ");
-    document.write(" <br>");
+    if (i < n -1)
+    {
+        let min_idx = i;
+
+        // Find the minimum element in unsorted subarray
+        for (let j = i + 1; j < n; j++)
+            if(arr[j] < arr[min_idx])
+                min_idx = j;
+
+        // Swap the found minimum element with first element
+        swap(arr, min_idx, i);
+
+        // Recursively sort the remaining unsorted subarray
+        recursiveSelectionSort(arr, i + 1, n);
+
+    }
+}
+
+// Print the freshly sorted array
+function printArray(arr, size) 
+{
+    var result = [];
+    for (var i = 0; i < size; i++)
+        result.push(arr[i]);
+    return result;
 }
 
 // Driver to test the algorithm
 var arr = [64, 25, 12, 22, 11];
-var n = 5;
+var n = arr.length;
 selectionSort(arr, n);
-document.write("Sorted array: <br>");
-printArray(arr, n);
+recursiveSelectionSort(arr, 0, n);
+
+// Print the sorted array to the console
+console.log("Sorted array:", printArray(arr, n));
+
+
+/* Iterative implementaiton in C++
+#include <iostream>
+using namespace std;
+
+void selectionSort(int arr[], int n)
+{
+	int i, j, min_idx;
+
+	// Traverse unsorted subarray
+	for (i = 0; i < n - 1; i++) 
+	{
+		// Find the minimum element in unsorted subarray
+		min_idx = i;
+		for (j = i + 1; j < n; j++)
+		{
+			if (arr[j] < arr[min_idx])
+				min_idx = j;
+		}
+		if (min_idx != i)
+			swap(arr[min_idx], arr[i]);
+	}
+}
+
+void printArray(int arr[], int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+	{
+		cout << arr[i] << " " << endl;
+	}
+}
+
+int main()
+{
+	int arr[] = { 64, 25, 12, 22, 11 };
+	int n = sizeof(arr) / sizeof(arr[0]);
+
+	// Function Call
+	selectionSort(arr, n);
+	cout << "Sorted array: \n";
+	printArray(arr, n);
+	return 0;
+}
+
+*/
