@@ -55,6 +55,7 @@ function selectionSort(arr, n)
     }
 }
 
+/* RECURSIVE selectionSort
 function recursiveSelectionSort(arr, i, n)
 {
     if (i < n -1)
@@ -74,6 +75,7 @@ function recursiveSelectionSort(arr, i, n)
 
     }
 }
+*/
 
 // Print the freshly sorted array
 function printArray(arr, size) 
