@@ -35,7 +35,7 @@ function swap(arr, xp, yp)
     arr[yp] = temp;
 }
 
-// Iterative implementation
+// Selection sort Iterative implementation
 function selectionSort(arr, n)
 {
     var i, j, min_idx;
@@ -90,7 +90,7 @@ function printArray(arr, size)
 var arr = [64, 25, 12, 22, 11];
 var n = arr.length;
 selectionSort(arr, n);
-recursiveSelectionSort(arr, 0, n);
+// recursiveSelectionSort(arr, 0, n);
 
 // Print the sorted array to the console
 console.log("Sorted array:", printArray(arr, n));
