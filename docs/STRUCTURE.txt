@@ -1,0 +1,21 @@
+AlgorithmVisualizer/
+├── .vscode/
+│   ├── launch.json
+├── assets/
+├── docs/
+│   ├── README.md
+│   ├── TODO.MD
+│   ├── STRUCTURE.txt
+├── lib/
+│   ├── utilities.js
+├── src/
+│   ├── SortingAlgorithms/
+│   │   ├── selectionSort.js
+│   │   ├── (other sorting algorithms coming soon ...)
+│   ├── index.html
+│   ├── styles.css
+│   └── main.js
+├── test/
+│   ├── testSelectionSort.js
+├── jsonconfig.json
+├── package.json

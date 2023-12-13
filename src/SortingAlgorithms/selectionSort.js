@@ -25,119 +25,29 @@ DISADVANTAGES:
 - NOT STABLE as it does not preserve the relative order of items with equal keys
 
 */
+import { swap } from '../../lib/utilities.js';
 
-/* IN JAVASCRIPT */
-// Swap array elements
-function swap(arr, xp, yp) 
+// Selection sort (iterative) implementation
+export async function selectionSort(arr, visualizeSwap, containerId) 
 {
-    var temp = arr[xp];
-    arr[xp] = arr[yp];
-    arr[yp] = temp;
-}
-
-// Selection sort Iterative implementation
-function selectionSort(arr, n)
-{
-    var i, j, min_idx;
+    var n = arr.length;
 
     // Traverse unsorted subarray
-    for (i = 0; i < n-1; i++)
+    for (var i = 0; i < n - 1; i++) 
     {
-        // Find the minimum element in unsorted subarray
-        let min_idx = i;
-
-        for (j = i + 1; j < n; j++)
-            if (arr[j] < arr[min_idx])
+        // Find the minimum element in unsorted array
+        var min_idx = i;
+        for (var j = i + 1; j < n; j++) 
+        {
+            if (arr[j] < arr[min_idx]) 
+            {
                 min_idx = j;
-
-        // Swap the found minimum element with first element
-        swap(arr, min_idx, i);
+            }
+        }
+        // Visualize the swap and wait for it to complete before continuing
+        if (min_idx != i) 
+        {
+            await visualizeSwap(arr, i, min_idx, containerId);
+        }
     }
 }
-
-/* RECURSIVE selectionSort
-function recursiveSelectionSort(arr, i, n)
-{
-    if (i < n -1)
-    {
-        let min_idx = i;
-
-        // Find the minimum element in unsorted subarray
-        for (let j = i + 1; j < n; j++)
-            if(arr[j] < arr[min_idx])
-                min_idx = j;
-
-        // Swap the found minimum element with first element
-        swap(arr, min_idx, i);
-
-        // Recursively sort the remaining unsorted subarray
-        recursiveSelectionSort(arr, i + 1, n);
-
-    }
-}
-*/
-
-// Print the freshly sorted array
-function printArray(arr, size) 
-{
-    var result = [];
-    for (var i = 0; i < size; i++)
-        result.push(arr[i]);
-    return result;
-}
-
-// Driver to test the algorithm
-var arr = [64, 25, 12, 22, 11];
-var n = arr.length;
-selectionSort(arr, n);
-// recursiveSelectionSort(arr, 0, n);
-
-// Print the sorted array to the console
-console.log("Sorted array:", printArray(arr, n));
-
-
-/* Iterative implementaiton in C++
-#include <iostream>
-using namespace std;
-
-void selectionSort(int arr[], int n)
-{
-	int i, j, min_idx;
-
-	// Traverse unsorted subarray
-	for (i = 0; i < n - 1; i++) 
-	{
-		// Find the minimum element in unsorted subarray
-		min_idx = i;
-		for (j = i + 1; j < n; j++)
-		{
-			if (arr[j] < arr[min_idx])
-				min_idx = j;
-		}
-		if (min_idx != i)
-			swap(arr[min_idx], arr[i]);
-	}
-}
-
-void printArray(int arr[], int size)
-{
-	int i;
-	for (i = 0; i < size; i++)
-	{
-		cout << arr[i] << " " << endl;
-	}
-}
-
-int main()
-{
-	int arr[] = { 64, 25, 12, 22, 11 };
-	int n = sizeof(arr) / sizeof(arr[0]);
-
-	// Function Call
-	selectionSort(arr, n);
-	cout << "Sorted array: \n";
-	printArray(arr, n);
-	return 0;
-}
-
-*/

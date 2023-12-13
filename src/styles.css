@@ -1,0 +1,20 @@
+/* styes.css */
+h1 
+{
+    color: green;
+    text-align: center;
+}
+
+#visualizationContainer
+{
+    display: flex;
+    margin-top: 20px;
+}
+
+.bar
+{
+    width: 20px;
+    margin-right: 5px;
+    background-color: blue;
+    transition: height 0.3s;
+}
