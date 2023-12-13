@@ -28,7 +28,7 @@ DISADVANTAGES:
 import { swap } from '../../lib/utilities.js';
 
 // Selection sort (iterative) implementation
-export async function selectionSort(arr, visualizeSwap, containerId) 
+export async function selectionSort(arr, visualizeSwap, visualizeComparison, containerId) 
 {
     var n = arr.length;
 
@@ -39,12 +39,15 @@ export async function selectionSort(arr, visualizeSwap, containerId)
         var min_idx = i;
         for (var j = i + 1; j < n; j++) 
         {
+            await visualizeComparison(containerId, min_idx, j);
+
+            // Find the minimum element in the array
             if (arr[j] < arr[min_idx]) 
             {
                 min_idx = j;
             }
         }
-        // Visualize the swap and wait for it to complete before continuing
+        // Swap if new minimum element is found
         if (min_idx != i) 
         {
             await visualizeSwap(arr, i, min_idx, containerId);

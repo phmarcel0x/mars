@@ -40,7 +40,7 @@ async function visualizeSwap(arr, idx1, idx2, containerId)
     bars[idx2].style.backgroundColor = 'orange';
 
     // Wait for some time to visualize swap
-    await new Promise(resolve => setTimeout(resolve, 2000)); // Shorten this delay if the sort takes too long
+    await new Promise(resolve => setTimeout(resolve, 500)); // Shorten this delay if the sort takes too long
 
     // Swap the DOM elements by swapping their styles and textContent
     let tempHeight = bars[idx1].style.height;
@@ -56,6 +56,37 @@ async function visualizeSwap(arr, idx1, idx2, containerId)
     bars[idx2].style.backgroundColor = 'blue';
 }
 
+async function visualizeComparison(containerId, idx1, idx2) 
+{
+    const container = document.getElementById(containerId);
+    const bars = container.children; // Consistent with visualizeSwap
+
+    console.log(`Comparing indices: ${idx1}, ${idx2}`);
+    console.log(`Total bars: ${bars.length}`); // Debugging log
+
+    const bar1 = bars[idx1];
+    const bar2 = bars[idx2];
+
+    console.log(`Bar1: ${bar1}, Bar2: ${bar2}`); // Debugging log
+
+    if (bar1 && bar2) 
+    {
+        // Highlight bars being compared
+        bar1.style.backgroundColor = 'orange';
+        bar2.style.backgroundColor = 'orange';
+
+        // Wait for some time to visualize comparison
+        await new Promise(resolve => setTimeout(resolve, 500)); // Adjust time as needed
+
+        // Reset the colors after comparison
+        bar1.style.backgroundColor = 'blue';
+        bar2.style.backgroundColor = 'blue';
+    } else {
+        // If either bar doesn't exist, log an error or handle it appropriately
+        console.error(`Bar at index ${idx1} or ${idx2} is undefined.`);
+    }
+}
+
 function displayArray(arr, containerId)
 {
     const container = document.getElementById(containerId);
@@ -65,14 +96,14 @@ function displayArray(arr, containerId)
 // Run the sorting algorithm and update the web with visualization
 async function runSortingAlgorithm() 
 {
-    const originalArray = [55,38,85,41,80,19,15,92,57,15,22,38,41,79,97,19,23,58,11,82,84,93,69,4,46,98,79,30,31,78,35,70,92,30,86,52,55,32,80,93,16,40,79,94,62,54,71,83,27,19];
+    const originalArray = [55,38,85,41,80,19,15,92,57,15,22,38,41,79];
     displayArray(originalArray, 'originalArray');
     
     const arrForSorting = originalArray.slice(); // Copy original array (for immutability)
     createBars(arrForSorting, 'visualizationContainer'); // Create initial visualization bars
 
     // Run selection sort with visualization and wait for it to complete
-    await selectionSort(arrForSorting, visualizeSwap, 'visualizationContainer');
+    await selectionSort(arrForSorting, visualizeSwap, visualizeComparison, 'visualizationContainer');
 
     // Ensure the sorted array is displayed after the sorting is complete
     displayArray(arrForSorting, 'sortedArray');
