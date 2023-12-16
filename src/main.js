@@ -1,5 +1,5 @@
 // main.js
-// Display an array on the web
+// Display an array on the web !
 import { selectionSort } from './SortingAlgorithms/selectionSort.js';
 
 function createBars(arr, containerId) 
@@ -40,7 +40,7 @@ async function visualizeSwap(arr, idx1, idx2, containerId)
     bars[idx2].style.backgroundColor = 'orange';
 
     // Wait for some time to visualize swap
-    await new Promise(resolve => setTimeout(resolve, 100)); // Shorten this delay if the sort takes too long
+    await new Promise(resolve => setTimeout(resolve, 10)); // Shorten this delay if the sort takes too long
 
     // Swap the DOM elements by swapping their styles and textContent
     let tempHeight = bars[idx1].style.height;
@@ -76,7 +76,7 @@ async function visualizeComparison(containerId, idx1, idx2)
         bar2.style.backgroundColor = 'orange';
 
         // Wait for some time to visualize comparison
-        await new Promise(resolve => setTimeout(resolve, 100)); // Adjust time as needed
+        await new Promise(resolve => setTimeout(resolve, 10)); // Adjust time as needed
 
         // Reset the colors after comparison
         bar1.style.backgroundColor = 'blue';
@@ -96,7 +96,7 @@ function displayArray(arr, containerId)
 // Run the sorting algorithm and update the web with visualization
 async function runSortingAlgorithm() 
 {
-    const originalArray = [71, 73, 50, 62, 81, 13, 63, 86, 77, 80, 9, 79, 91, 98, 21, 95, 67, 43, 14, 19, 72, 74, 29, 65, 82, 15, 18, 32, 3, 17, 35, 97, 53, 16, 5, 89, 49, 40, 56, 88, 60, 70, 1, 76, 52, 27, 94, 37, 8, 92];
+    const originalArray = [71, 73, 50, 62, 81, 13, 63, 86, 77, 80, 9, 79, 91, 98, 21, 95];
     displayArray(originalArray, 'originalArray');
     
     const arrForSorting = originalArray.slice(); // Copy original array (for immutability)
