@@ -2,22 +2,20 @@
 // Display an array on the web !
 import { selectionSort } from './SortingAlgorithms/selectionSort.js';
 
+// main.js
 function createBars(arr, containerId) 
 {
     const container = document.getElementById(containerId);
     container.innerHTML = ''; // Clear previous bars
 
+    const barWidth = container.clientWidth / arr.length - 5; // Calculate width dynamically
+
     arr.forEach((value, index) => {
         const bar = document.createElement('div');
         bar.className = 'bar';
         bar.style.height = `${value * 5}px`; // Height based on value
-        bar.style.width = '20px'; // Width of the bar, adjust if necessary
-        bar.style.left = `${index * (20 + 5)}px`; // Position bars next to each other
-        bar.dataset.value = value; // Store the value in the dataset for reference
-        bar.dataset.index = index;
         bar.textContent = value; // Set the text content to the value of the element
         bar.style.color = 'white'; // Text color
-        // The rest of the flex styles are not needed now
         container.appendChild(bar);
     });
 }
@@ -40,7 +38,7 @@ async function visualizeSwap(arr, idx1, idx2, containerId)
     bars[idx2].style.backgroundColor = 'orange';
 
     // Wait for some time to visualize swap
-    await new Promise(resolve => setTimeout(resolve, 10)); // Shorten this delay if the sort takes too long
+    await new Promise(resolve => setTimeout(resolve, 1000)); // Shorten this delay if the sort takes too long
 
     // Swap the DOM elements by swapping their styles and textContent
     let tempHeight = bars[idx1].style.height;
@@ -76,7 +74,7 @@ async function visualizeComparison(containerId, idx1, idx2)
         bar2.style.backgroundColor = 'orange';
 
         // Wait for some time to visualize comparison
-        await new Promise(resolve => setTimeout(resolve, 10)); // Adjust time as needed
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Adjust time as needed
 
         // Reset the colors after comparison
         bar1.style.backgroundColor = 'blue';
@@ -96,7 +94,7 @@ function displayArray(arr, containerId)
 // Run the sorting algorithm and update the web with visualization
 async function runSortingAlgorithm() 
 {
-    const originalArray = [71, 73, 50, 62, 81, 13, 63, 86, 77, 80, 9, 79, 91, 98, 21, 95];
+    const originalArray = [71, 73, 50, 62, 81, 13, 63, 86, 77, 80, 1, 79, 91, 98, 21, 95, 101];
     displayArray(originalArray, 'originalArray');
     
     const arrForSorting = originalArray.slice(); // Copy original array (for immutability)

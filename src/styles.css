@@ -1,6 +1,5 @@
 /* styles.css */
-html, body 
-{
+html, body {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -9,42 +8,70 @@ html, body
     flex-direction: column;
 }
 
-#header 
-{
-    flex: 1;
+#header {
     text-align: center;
 }
 
-#arrayDisplays 
-{
+#arrayDisplays {
     text-align: center;
+    padding: 10px;
+    font-size: 1.2em; /* Increase font size of the array display text */
 }
 
-#visualizationContainer 
-{
-    flex: 6;
-    width: 80%;
-    margin: 20px auto; 
-    position: relative;
+#arrayDisplays span {
+    font-weight: bold; /* Make the array values bold */
 }
 
-#footer 
-{
-    flex: 2;
+#visualizationContainer {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row; /* Align bars in a row */
+    justify-content: center; /* Center bars horizontally */
+    align-items: flex-end; /* Align bars to the bottom */
+    margin: 20px auto; /* Center the container */
+    padding: 0 20px; /* Padding to ensure there is space at the sides */
+    max-width: 80%; /* Maximum width of the container */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+#footer {
     text-align: center;
+    padding: 50px;
 }
 
-.bar 
-{
-    width: 25px;
-    margin-right: 5px;
+.bar {
+    flex-grow: 1; /* Allows the bars to grow and fill the container */
+    margin: 0 2px; /* Keeps a small margin between bars */
     background-color: blue;
-    position: absolute;
-    bottom: 0;
+    height: 5px; /* Minimum height */
+    text-align: center;
+    color: white; /* Text color */
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden; /* Hides text overflow */
+    min-width: 10px; /* Minimum width of a bar to ensure visibility */
+    max-width: 60px; /* Maximum width of a bar to avoid overly wide bars */
 }
 
-.array-display 
-{
+.array-display {
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+/* If you have specific styles for headings (titles), you can add them here */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold; /* Make all headings bold */
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+@media (max-width: 600px) {
+    #arrayDisplays {
+        font-size: 1em; /* Adjust font size for smaller screens if necessary */
+    }
+    #visualizationContainer {
+        max-width: 95%; /* Allow the container to take more width on smaller screens */
+        padding: 0 10px; /* Less padding on smaller screens */
+    }
 }
