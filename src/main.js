@@ -1,8 +1,6 @@
 // main.js
-// Display an array on the web !
 import { selectionSort } from './SortingAlgorithms/selectionSort.js';
 
-// main.js
 function createBars(arr, containerId) 
 {
     const container = document.getElementById(containerId);
@@ -94,7 +92,7 @@ function displayArray(arr, containerId)
 // Run the sorting algorithm and update the web with visualization
 async function runSortingAlgorithm() 
 {
-    const originalArray = [71, 73, 50, 62, 81, 13, 63, 86, 77, 80, 1, 79, 91, 98, 21, 95, 101];
+    const originalArray = [71, 73, 50, 62, 81, 13, 63, 86, 77, 80, 9, 79, 91, 98, 21, 95, 101];
     displayArray(originalArray, 'originalArray');
     
     const arrForSorting = originalArray.slice(); // Copy original array (for immutability)
