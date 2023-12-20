@@ -10,13 +10,16 @@ html, body {
 
 #header {
     text-align: center;
+    font-size: xx-large;
 }
 
 #arrayDisplays {
     text-align: center;
     padding: 10px;
-    font-size: 1.2em; /* Increase font size of the array display text */
+    font-size: xx-large; /* Increase font size of the array display text */
+    font-weight: bold;
 }
+
 
 #arrayDisplays span {
     font-weight: bold; /* Make the array values bold */
@@ -68,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 600px) {
     #arrayDisplays {
-        font-size: 1em; /* Adjust font size for smaller screens if necessary */
+        font-size: xx-large; /* Adjust font size for smaller screens if necessary */
     }
     #visualizationContainer {
         max-width: 95%; /* Allow the container to take more width on smaller screens */
