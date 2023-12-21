@@ -42,6 +42,27 @@ html, body {
     padding: 50px;
 }
 
+/* styles.css */
+
+#startSortingButton {
+    background-color: #4CAF50; /* Green background */
+    color: white;              /* White text */
+    padding: 15px 32px;          /* Padding inside the button */
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 20px auto;         /* Vertical margin with automatic horizontal margin for centering */
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;        /* Rounded corners */
+    width: 200px;              /* Fixed width */
+}
+
+#startSortingButton:hover {
+    background-color:green; /* Darker green when hovered */
+}
+
 .bar {
     flex-grow: 1; /* Allows the bars to grow and fill the container */
     margin: 0 2px; /* Keeps a small margin between bars */
@@ -62,7 +83,7 @@ html, body {
     margin-bottom: 20px;
 }
 
-/* If you have specific styles for headings (titles), you can add them here */
+/* Add styles for headings (titles) */
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold; /* Make all headings bold */
     margin-top: 0.5em;
@@ -71,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 600px) {
     #arrayDisplays {
-        font-size: xx-large; /* Adjust font size for smaller screens if necessary */
+        font-size: xx-large; /* Adjust font size for smaller screens */
     }
     #visualizationContainer {
         max-width: 95%; /* Allow the container to take more width on smaller screens */

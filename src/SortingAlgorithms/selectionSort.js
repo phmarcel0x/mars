@@ -25,8 +25,6 @@ DISADVANTAGES:
 - NOT STABLE as it does not preserve the relative order of items with equal keys
 
 */
-import { swap } from '../../lib/utilities.js';
-
 // Selection sort (iterative) implementation
 export async function selectionSort(arr, visualizeSwap, visualizeComparison, containerId) 
 {

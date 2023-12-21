@@ -4,7 +4,7 @@ AlgorithmVisualizer/
 ├── assets/
 ├── docs/
 │   ├── README.md
-│   ├── TODO.MD
+│   ├── TODO.md
 │   ├── STRUCTURE.txt
 ├── lib/
 │   ├── utilities.js
@@ -12,6 +12,7 @@ AlgorithmVisualizer/
 │   ├── SortingAlgorithms/
 │   │   ├── selectionSort.js
 │   │   ├── (other sorting algorithms coming soon ...)
+│   ├── config.js
 │   ├── index.html
 │   ├── styles.css
 │   └── main.js
