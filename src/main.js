@@ -1,7 +1,7 @@
 // main.js
 import { selectionSort } from './SortingAlgorithms/selectionSort.js';
 
-const originalArray = [59, 82, 86, 71, 33, 77, 74, 62, 10, 54, 74, 28, 85, 42];
+const originalArray = [59, 82, 86, 71, 33, 77, 74, 62, 10, 54, 74, 28, 85, 42, 59, 82, 86, 71, 33, 77, 74, 62, 10, 54, 74, 28, 85, 42, 59, 82, 86, 71, 33, 77, 74, 62, 10, 54, 74, 28, 85, 42, 59, 82, 86, 71, 33, 77, 74, 62, 10, 54, 74, 28, 85, 42, 59, 82, 86, 71, 33, 77, 74, 62, 10, 54, 74, 28, 85, 42];
 
 function createBars(arr, containerId) 
 {
@@ -38,7 +38,7 @@ async function visualizeSwap(arr, idx1, idx2, containerId)
     bars[idx2].style.backgroundColor = 'orange';
 
     // Wait for some time to visualize swap
-    await new Promise(resolve => setTimeout(resolve, 500)); // Shorten this delay if the sort takes too long
+    await new Promise(resolve => setTimeout(resolve, 150)); // Shorten this delay if the sort takes too long
 
     // Swap the DOM elements by swapping their styles and textContent
     let tempHeight = bars[idx1].style.height;
@@ -74,7 +74,7 @@ async function visualizeComparison(containerId, idx1, idx2)
         bar2.style.backgroundColor = 'orange';
 
         // Wait for some time to visualize comparison
-        await new Promise(resolve => setTimeout(resolve, 500)); // Adjust time as needed
+        await new Promise(resolve => setTimeout(resolve, 150)); // Adjust time as needed
 
         // Reset the colors after comparison
         bar1.style.backgroundColor = 'blue';
