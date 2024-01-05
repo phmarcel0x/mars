@@ -103,20 +103,28 @@ html, body {
     border-color: #a1a1a1; /* Slightly darker border on hover */
 }
 
+.barContainer {
+    margin: 0 2px;
+    min-width: 10px;
+    max-width: 60px;
+}
+
 .bar {
     flex-grow: 1;
-    margin: 0 2px;
-    background-color: #007aff; /* Matching the button color */
-    height: 5px;
-    text-align: center;
-    color: white;
+    background-color: #007aff; /* Default color, will be set dynamically based on value */
+    width: 100%; /* Ensure the bar fills the container */
     display: flex;
     align-items: flex-end;
     justify-content: center;
     overflow: hidden;
-    min-width: 10px;
-    max-width: 60px;
 }
+
+.valueLabel {
+    font-size: 12px; /* Adjust as needed */
+    color: #333; /* Dark grey color for text */
+    padding-top: 5px; /* Space between bar and value label */
+}
+
 
 .array-display {
     margin-top: 20px;

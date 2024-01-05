@@ -1,95 +1,114 @@
 // main.js
 import { selectionSort } from './SortingAlgorithms/selectionSort.js';
 
-const originalArray = [59, 82, 86, 71, 33, 77, 74];
+const originalArray = [-20, -8, -9, 19, 11, -23, 35, 3, 5, 48, -22, 44, -41, 23, 9, -17, 43, 32, 25, 38, -15, -30, -50, 24, 49, 2, -40, 20, -31, -32, 13, 28, 45];
 
 function createBars(arr, containerId) 
 {
     const container = document.getElementById(containerId);
     container.innerHTML = ''; // Clear previous bars
 
-    const barWidth = container.clientWidth / arr.length - 5; // Calculate width dynamically
-
     arr.forEach((value, index) => {
+        // Create a container for each bar and its value
+        const barContainer = document.createElement('div');
+        barContainer.className = 'barContainer';
+        barContainer.style.display = 'flex';
+        barContainer.style.flexDirection = 'column';
+        barContainer.style.alignItems = 'center';
+
+        // Create the bar element
         const bar = document.createElement('div');
         bar.className = 'bar';
-        bar.style.height = `${value * 2}px`; // Height based on value
-        bar.textContent = value; // Set the text content to the value of the element
-        bar.style.color = 'white'; // Text color
-        container.appendChild(bar);
+        bar.style.height = `${Math.abs(value) * 2}px`; // Height based on absolute value
+        bar.style.backgroundColor = value >= 0 ? '#007aff' : 'red'; // Color based on positive or negative value
+
+        // Create the value label element
+        const valueLabel = document.createElement('div');
+        valueLabel.className = 'valueLabel';
+        valueLabel.textContent = value; // Set the text content to the value of the element
+
+        // Append the bar and value label to the bar container
+        barContainer.appendChild(bar);
+        barContainer.appendChild(valueLabel);
+
+        // Append the bar container to the main container
+        container.appendChild(barContainer);
     });
 }
 
+
 async function visualizeSwap(arr, idx1, idx2, containerId) 
 {
-    // Early exit if there's nothing to swap
     if (idx1 === idx2) return;
 
     const container = document.getElementById(containerId);
-    const bars = container.children;
-    
+    const barContainers = container.getElementsByClassName('barContainer'); // Get the barContainers
+
     // Swap the elements in the array
     let temp = arr[idx1];
     arr[idx1] = arr[idx2];
     arr[idx2] = temp;
 
     // Visually highlight the bars being swapped
-    bars[idx1].style.backgroundColor = 'orange';
-    bars[idx2].style.backgroundColor = 'orange';
+    barContainers[idx1].children[0].style.backgroundColor = 'orange'; // First child is the bar
+    barContainers[idx2].children[0].style.backgroundColor = 'orange';
 
     // Wait for some time to visualize swap
-    await new Promise(resolve => setTimeout(resolve, 150)); // Shorten this delay if the sort takes too long
+    await new Promise(resolve => setTimeout(resolve, getSelectedDelay()));
 
-    // Swap the DOM elements by swapping their styles and textContent
-    let tempHeight = bars[idx1].style.height;
-    bars[idx1].style.height = bars[idx2].style.height;
-    bars[idx2].style.height = tempHeight;
+    // Swap the DOM elements by swapping their heights
+    let tempHeight = barContainers[idx1].children[0].style.height;
+    barContainers[idx1].children[0].style.height = barContainers[idx2].children[0].style.height;
+    barContainers[idx2].children[0].style.height = tempHeight;
 
-    let tempText = bars[idx1].textContent;
-    bars[idx1].textContent = bars[idx2].textContent;
-    bars[idx2].textContent = tempText;
+    // Swap the textContent of the value labels
+    let tempText = barContainers[idx1].children[1].textContent;
+    barContainers[idx1].children[1].textContent = barContainers[idx2].children[1].textContent;
+    barContainers[idx2].children[1].textContent = tempText;
 
     // Reset the color back to blue after swap
-    bars[idx1].style.backgroundColor = 'blue';
-    bars[idx2].style.backgroundColor = 'blue';
+    barContainers[idx1].children[0].style.backgroundColor = 'blue';
+    barContainers[idx2].children[0].style.backgroundColor = 'blue';
 }
+
 
 async function visualizeComparison(containerId, idx1, idx2) 
 {
     const container = document.getElementById(containerId);
-    const bars = container.children; // Consistent with visualizeSwap
+    const barContainers = container.getElementsByClassName('barContainer'); // Get the barContainers
 
-    console.log(`Comparing indices: ${idx1}, ${idx2}`);
-    console.log(`Total bars: ${bars.length}`); // Debugging log
-
-    const bar1 = bars[idx1];
-    const bar2 = bars[idx2];
-
-    console.log(`Bar1: ${bar1}, Bar2: ${bar2}`); // Debugging log
-
-    if (bar1 && bar2) 
-    {
+    if (barContainers[idx1] && barContainers[idx2]) {
         // Highlight bars being compared
-        bar1.style.backgroundColor = 'orange';
-        bar2.style.backgroundColor = 'orange';
+        barContainers[idx1].children[0].style.backgroundColor = 'orange';
+        barContainers[idx2].children[0].style.backgroundColor = 'orange';
 
         // Wait for some time to visualize comparison
-        await new Promise(resolve => setTimeout(resolve, 150)); // Adjust time as needed
+        await new Promise(resolve => setTimeout(resolve, getSelectedDelay()));
 
         // Reset the colors after comparison
-        bar1.style.backgroundColor = 'blue';
-        bar2.style.backgroundColor = 'blue';
+        barContainers[idx1].children[0].style.backgroundColor = 'blue';
+        barContainers[idx2].children[0].style.backgroundColor = 'blue';
     } else {
         // If either bar doesn't exist, log an error or handle it appropriately
         console.error(`Bar at index ${idx1} or ${idx2} is undefined.`);
     }
 }
 
+
 function displayArray(arr, containerId)
 {
     const container = document.getElementById(containerId);
     container.innerHTML = arr.join(', ');
 }
+
+
+function getSelectedDelay()
+{
+    const selectedSpeed = document.getElementById('speedSelector').value;
+    const baseDelay = 100;
+    return baseDelay/selectedSpeed;
+}
+
 
 // Run the sorting algorithm and update the web with visualization
 async function runSortingAlgorithm() 
