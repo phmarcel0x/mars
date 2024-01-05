@@ -7,12 +7,10 @@ AlgorithmVisualizer/
 │   ├── TODO.md
 │   ├── STRUCTURE.txt
 ├── lib/
-│   ├── utilities.js
 ├── src/
 │   ├── SortingAlgorithms/
 │   │   ├── selectionSort.js
 │   │   ├── (other sorting algorithms coming soon ...)
-│   ├── config.js
 │   ├── index.html
 │   ├── styles.css
 │   └── main.js

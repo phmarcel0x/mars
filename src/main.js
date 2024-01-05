@@ -1,7 +1,7 @@
 // main.js
 import { selectionSort } from './SortingAlgorithms/selectionSort.js';
 
-const originalArray = [59, 82, 86, 71, 33, 77, 74, 62, 10, 54, 74, 28, 85, 42, 59, 82, 86, 71, 33, 77, 74, 62, 10, 54, 74, 28, 85, 42, 59, 82, 86, 71, 33, 77, 74, 62, 10, 54, 74, 28, 85, 42, 59, 82, 86, 71, 33, 77, 74, 62, 10, 54, 74, 28, 85, 42, 59, 82, 86, 71, 33, 77, 74, 62, 10, 54, 74, 28, 85, 42];
+const originalArray = [59, 82, 86, 71, 33, 77, 74];
 
 function createBars(arr, containerId) 
 {

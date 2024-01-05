@@ -6,76 +6,116 @@ html, body {
     height: 100%;
     display: flex;
     flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #333; /* Dark grey color for text */
+    background-color: #f7f7f7; /* Light grey background, soft on the eyes */
 }
 
 #header {
     text-align: center;
-    font-size: xx-large;
+    font-size: 28px; /* Slightly smaller than xx-large for a more sophisticated look */
+    padding: 20px 0;
+    background-color: #fafafa; /* Slightly different shade for the header */
+    border-bottom: 1px solid #d1d1d1; /* Light border for subtle separation */
 }
 
 #arrayDisplays {
     text-align: center;
-    padding: 10px;
-    font-size: xx-large; /* Increase font size of the array display text */
-    font-weight: bold;
+    padding: 20px; /* More padding for a spacious look */
+    font-size: 16px;
+    margin: 20px auto;
+    min-width: 300px;
+    max-width: 80%;
+    background-color: #fff; /* White background for sections */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); /* Subtle shadows for depth */
+    border-radius: 8px; /* Rounded corners for a softer look */
 }
 
-
 #arrayDisplays span {
-    font-weight: bold; /* Make the array values bold */
+    font-weight: normal; /* Less bold for a lighter feel */
 }
 
 #visualizationContainer {
     flex-grow: 1;
     display: flex;
-    flex-direction: row; /* Align bars in a row */
-    justify-content: center; /* Center bars horizontally */
-    align-items: flex-end; /* Align bars to the bottom */
-    margin: 20px auto; /* Center the container */
-    padding: 0 20px; /* Padding to ensure there is space at the sides */
-    max-width: 80%; /* Maximum width of the container */
-    box-sizing: border-box; /* Include padding in the width calculation */
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 20px auto;
+    padding: 0 20px;
+    max-width: 80%;
 }
 
 #footer {
     text-align: center;
     padding: 50px;
+    background-color: #fafafa; /* Slightly different shade for the footer */
+    border-top: 1px solid #d1d1d1; /* Light border for subtle separation */
 }
 
-/* styles.css */
+/* Button and dropdown styles */
+#controlsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 20px auto;
+}
 
 #startSortingButton {
-    background-color: #4CAF50; /* Green background */
-    color: white;              /* White text */
-    padding: 15px 32px;          /* Padding inside the button */
+    background-color: #007aff; /* Apple's default blue */
+    color: white;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: block;
     font-size: 16px;
-    margin: 20px auto;         /* Vertical margin with automatic horizontal margin for centering */
     cursor: pointer;
     border: none;
-    border-radius: 5px;        /* Rounded corners */
-    width: 200px;              /* Fixed width */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 
-#startSortingButton:hover {
-    background-color:green; /* Darker green when hovered */
+#startSortingButton:hover, #startSortingButton:focus {
+    background-color: #005ecb; /* Slightly darker blue for hover and focus */
+}
+
+#speedSelectorContainer {
+    background-color: #ffffff; /* White background for a clean look */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    padding: 10px 20px;
+}
+
+#speedSelector {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid #d1d1d1; /* Light border for definition */
+    border-radius: 8px;
+    appearance: none; /* Remove default styling */
+    transition: border-color 0.3s; /* Smooth transition for hover effect */
+}
+
+#speedSelector:hover {
+    border-color: #a1a1a1; /* Slightly darker border on hover */
 }
 
 .bar {
-    flex-grow: 1; /* Allows the bars to grow and fill the container */
-    margin: 0 2px; /* Keeps a small margin between bars */
-    background-color: blue;
-    height: 5px; /* Minimum height */
+    flex-grow: 1;
+    margin: 0 2px;
+    background-color: #007aff; /* Matching the button color */
+    height: 5px;
     text-align: center;
-    color: white; /* Text color */
+    color: white;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    overflow: hidden; /* Hides text overflow */
-    min-width: 10px; /* Minimum width of a bar to ensure visibility */
-    max-width: 60px; /* Maximum width of a bar to avoid overly wide bars */
+    overflow: hidden;
+    min-width: 10px;
+    max-width: 60px;
 }
 
 .array-display {
@@ -83,19 +123,28 @@ html, body {
     margin-bottom: 20px;
 }
 
-/* Add styles for headings (titles) */
+/* Styles for headings (titles) */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: bold; /* Make all headings bold */
+    font-weight: bold;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
 }
 
+/* Responsive adjustments */
 @media (max-width: 600px) {
-    #arrayDisplays {
-        font-size: xx-large; /* Adjust font size for smaller screens */
+    #arrayDisplays, #visualizationContainer {
+        max-width: 95%;
+        padding: 0 15px;
     }
-    #visualizationContainer {
-        max-width: 95%; /* Allow the container to take more width on smaller screens */
-        padding: 0 10px; /* Less padding on smaller screens */
+    #controlsContainer {
+        flex-direction: column;
+    }
+    #startSortingButton, #speedSelectorContainer {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    #startSortingButton:last-child, #speedSelectorContainer:last-child {
+        margin-bottom: 0;
     }
 }
+
