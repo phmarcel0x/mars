@@ -26,8 +26,7 @@ DISADVANTAGES:
 
 */
 // Selection sort (iterative) implementation
-export async function selectionSort(arr, visualizeSwap, visualizeComparison, containerId) 
-{
+export async function selectionSort(arr, visualizeSwap, visualizeComparison, containerId) {
     var n = arr.length;
 
     // Traverse unsorted subarray

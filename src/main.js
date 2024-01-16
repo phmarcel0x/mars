@@ -1,10 +1,8 @@
 // main.js
 import { selectionSort } from './SortingAlgorithms/selectionSort.js';
 
-const originalArray = [-20, -8, -9, 19, 11, -23, 35, 3, 5, 48, -22, 44, -41, 23, 9, -17, 43, 32, 25, 38, -15, -30, -50, 24, 49, 2, -40, 20, -31, -32, 13, 28, 45];
-
-function createBars(arr, containerId) 
-{
+const originalArray = [129, 38, 115, 188, 192, 19, 144, 189, 140, 134, 155, 53, 196, 160, 130, 136, 113, 148, 66, 175, 41, 54, 177, 11, 149, 168, 23, 146, 36, 15, 195, 12, 50, 95, 199];
+function createBars(arr, containerId) {
     const container = document.getElementById(containerId);
     container.innerHTML = ''; // Clear previous bars
 
@@ -37,8 +35,7 @@ function createBars(arr, containerId)
 }
 
 
-async function visualizeSwap(arr, idx1, idx2, containerId) 
-{
+async function visualizeSwap(arr, idx1, idx2, containerId) {
     if (idx1 === idx2) return;
 
     const container = document.getElementById(containerId);
@@ -72,8 +69,7 @@ async function visualizeSwap(arr, idx1, idx2, containerId)
 }
 
 
-async function visualizeComparison(containerId, idx1, idx2) 
-{
+async function visualizeComparison(containerId, idx1, idx2) {
     const container = document.getElementById(containerId);
     const barContainers = container.getElementsByClassName('barContainer'); // Get the barContainers
 
@@ -95,24 +91,21 @@ async function visualizeComparison(containerId, idx1, idx2)
 }
 
 
-function displayArray(arr, containerId)
-{
+function displayArray(arr, containerId) {
     const container = document.getElementById(containerId);
     container.innerHTML = arr.join(', ');
 }
 
 
-function getSelectedDelay()
-{
+function getSelectedDelay() {
     const selectedSpeed = document.getElementById('speedSelector').value;
-    const baseDelay = 100;
+    const baseDelay = 50;
     return baseDelay/selectedSpeed;
 }
 
 
 // Run the sorting algorithm and update the web with visualization
-async function runSortingAlgorithm() 
-{
+async function runSortingAlgorithm() {
     console.log('Sorting algorithm triggered'); // Added for debugging
 
     const sortButton = document.getElementById('startSortingButton');
