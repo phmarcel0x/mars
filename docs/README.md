@@ -21,4 +21,5 @@ The Modular Algorithm Rendering System is a personal project developed to visual
 4. Click 'Visualize!' to start the animation and observe the algorithm at work.
 <!-- 5. Utilize the provided descriptions to gain insights into each algorithm's strategy and use case. -->
 
+
 Check out the project on [GitHub](https://github.com/phmarcel0x/dsa-algorithm-visualizer) for more information and to explore the code behind the visualizations.
