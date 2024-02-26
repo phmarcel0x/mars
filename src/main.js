@@ -103,6 +103,9 @@ function getSelectedDelay() {
     return baseDelay/selectedSpeed;
 }
 
+function getSelectedAlgorithm() {
+    return document.getElementById('algorithmSelector').value;
+}
 
 // Run the sorting algorithm and update the web with visualization
 async function runSortingAlgorithm() {

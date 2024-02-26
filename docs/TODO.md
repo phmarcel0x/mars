@@ -1,5 +1,5 @@
-# Consider implementing the recursive version of Selection Sort
+# Add skipToEnd button.
 
-# Add startSorting and skipToEnd buttons
+# Randomize initial array through a button and a size selector
 
-# Add a new sorting algorithm
+# Add a new sorting algorithm (including a selec algorithm button)
