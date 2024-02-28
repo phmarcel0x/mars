@@ -3,17 +3,17 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/phmarcel0x/dsa-algorithm-visualizer)
 ![GitHub issues](https://img.shields.io/github/issues/phmarcel0x/dsa-algorithm-visualizer)
 
-## Introduction
+### Introduction
 
 The Modular Algorithm Rendering System is a personal project developed to visualize classic sorting and searching algorithms. It serves as a dynamic tool to demonstrate how different algorithms approach the task of organizing and finding elements within randomly generated lists.
 
-## Features
+### Features
 
 - **Interactive Visualizations:** See sorting and searching algorithms in action with real-time animations.
 - **User-Friendly Interface:** Easily select algorithms and adjust speed parameter to understand their behavior on different datasets.
 - **Educational Resource:** Enhances understanding of algorithm efficiency and complexity through direct observation and comparison.
 
-## How to Use
+### How to Use
 
 1. Select an algorithm from the available options (more coming soon)!
 2. Chose a dataset size and randomise the datum.
@@ -21,5 +21,6 @@ The Modular Algorithm Rendering System is a personal project developed to visual
 4. Click 'Visualize!' to start the animation and observe the algorithm at work.
 5. Skip to End if you wish to fast-forward to the end of the visualization and see the final result.
 <!-- 5. Utilize the provided descriptions to gain insights into each algorithm's strategy and use case. -->
+
 
 Check out the project on [GitHub](https://github.com/phmarcel0x/dsa-algorithm-visualizer) for more information and to explore the code behind the visualizations.
