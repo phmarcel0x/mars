@@ -1,7 +1,7 @@
 // main.js
 import { selectionSort } from './SortingAlgorithms/selectionSort.js';
 
-const originalArray = [129, 38, 115, 188, 192, 19, 144, 189, 140, 134, 155, 53, 196, 160, 130, 136, 113, 148, 66, 175, 41, 54, 177, 11, 149, 168, 23, 146, 36, 15, 195, 12, 50, 95, 199];
+const originalArray = [129, 38, 115, 188, 192, 19, 144, 189, 140, 134, 155, 53, 196];
 function createBars(arr, containerId) {
     const container = document.getElementById(containerId);
     container.innerHTML = ''; // Clear previous bars
@@ -131,4 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const sortButton = document.getElementById('startSortingButton');
     sortButton.addEventListener('click', runSortingAlgorithm);
 
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var copyrightLink = document.getElementById('copyrightLink');
+    copyrightLink.setAttribute('target', '_blank');
 });

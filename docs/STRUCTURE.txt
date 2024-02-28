@@ -18,3 +18,5 @@ AlgorithmVisualizer/
 │   ├── testSelectionSort.js
 ├── jsonconfig.json
 ├── package.json
+├── LICENSE
+

@@ -1,45 +1,47 @@
 /* styles.css */
 
 html, body {
-    margin: 0;  
-    padding: 0;  
-    width: 100%;  
+    margin: 0;
+    padding: 0;
+    width: 100%;
     height: 100%;
-    display: flex;  
-    flex-direction: column;  /* Stack children vertically */
+    display: flex;
+    flex-direction: column;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    color: #000000; /* Dark grey color for text */
-    background-color: #f7f7f7; /* Light grey background, soft on the eyes */
+    color: #000000;
+    background-color: #f7f7f7;
 }
 
 #header {
     text-align: left;
-    font-size: 14px; /* Slightly smaller than xx-large for a more sophisticated look */
-    padding: 0 10px;  
-    background-color: #fafafa; /* Slightly different shade for the header */
-    border-bottom: 1px solid #d1d1d1; /* Light border for subtle separation */
+    font-size: 14px;
+    padding: 0 24px;
+    background-color: #000000;
+    color: #ffffff;
+    border-bottom: 1px solid #d1d1d1;
 }
 
 #arrayDisplays {
     text-align: center;
-    padding: 18px; 
+    padding: 18px;
     font-size: 16px;
+    font-weight: bold;
     margin: 20px auto;
     min-width: 300px;
     max-width: 80%;
-    background-color: #fff; /* White background for sections */
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); /* Subtle shadows for depth */
-    border-radius: 8px; /* Rounded corners for a softer look */
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 8px;
 }
 
 #arrayDisplays span {
-    font-weight: normal; /* Less bold for a lighter feel */
+    font-weight: normal;
 }
 
 #visualizationContainer {
     flex-grow: 1;
     display: flex;
-    flex-direction: row;
+    flex-direction: row;  
     justify-content: center;
     align-items: flex-end;
     margin: 20px auto;
@@ -49,9 +51,10 @@ html, body {
 
 #footer {
     text-align: left;
-    padding: 0 10px;
-    background-color: #fafafa; /* Slightly different shade for the footer */
-    border-top: 1px solid #d1d1d1; /* Light border for subtle separation */
+    padding: 0 24px;
+    background-color: #000000;
+    color: #ffffff;
+    border-top: 1px solid #d1d1d1;
 }
 
 /* Button and dropdown styles */
@@ -64,8 +67,8 @@ html, body {
 }
 
 #startSortingButton {
-    background-color: #007aff; /* Apple's default blue */
-    color: white;
+    background-color: #000000;
+    color: #ffffff;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
@@ -73,19 +76,19 @@ html, body {
     font-size: 16px;
     cursor: pointer;
     border: none;
-    border-radius: 8px; /* Rounded corners for a modern look */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
 }
 
 #startSortingButton:hover, #startSortingButton:focus {
-    background-color: #005ecb; /* Slightly darker blue for hover and focus */
+    background-color: #333333;
 }
 
 #speedSelectorContainer {
-    background-color: #ffffff; /* White background for a clean look */
+    background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     padding: 10px 20px;
 }
 
@@ -94,14 +97,14 @@ html, body {
     font-size: 16px;
     cursor: pointer;
     background-color: white;
-    border: 1px solid #d1d1d1; /* Light border for definition */
+    border: 1px solid #d1d1d1;
     border-radius: 8px;
-    appearance: none; /* Remove default styling */
-    transition: border-color 0.3s; /* Smooth transition for hover effect */
+    appearance: none;
+    transition: border-color 0.3s;
 }
 
 #speedSelector:hover {
-    border-color: #a1a1a1; /* Slightly darker border on hover */
+    border-color: #a1a1a1;
 }
 
 .barContainer {
@@ -112,8 +115,8 @@ html, body {
 
 .bar {
     flex-grow: 1;
-    background-color: #007aff; /* Default color, will be set dynamically based on value */
-    width: 100%; /* Ensure the bar fills the container */
+    background-color: #000000;
+    width: 100%;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -121,22 +124,9 @@ html, body {
 }
 
 .valueLabel {
-    font-size: 12px; /* Adjust as needed */
-    color: #333; /* Dark grey color for text */
-    padding-top: 5px; /* Space between bar and value label */
-}
-
-
-.array-display {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-/* Styles for headings (titles) */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: bold;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    font-size: 12px;
+    color: #000000;
+    padding-top: 5px;
 }
 
 /* Responsive adjustments */
@@ -155,4 +145,8 @@ h1, h2, h3, h4, h5, h6 {
     #startSortingButton:last-child, #speedSelectorContainer:last-child {
         margin-bottom: 0;
     }
+}
+/* Prevent copyright hyperlink from being highlighted purple when clicked */
+a#copyrightLink:visited {
+    color: inherit;
 }
