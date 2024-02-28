@@ -1,27 +1,28 @@
 /* styles.css */
+
 html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
+    margin: 0;  
+    padding: 0;  
+    width: 100%;  
     height: 100%;
-    display: flex;
-    flex-direction: column;
+    display: flex;  
+    flex-direction: column;  /* Stack children vertically */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    color: #333; /* Dark grey color for text */
+    color: #000000; /* Dark grey color for text */
     background-color: #f7f7f7; /* Light grey background, soft on the eyes */
 }
 
 #header {
-    text-align: center;
-    font-size: 28px; /* Slightly smaller than xx-large for a more sophisticated look */
-    padding: 20px 0;
+    text-align: left;
+    font-size: 14px; /* Slightly smaller than xx-large for a more sophisticated look */
+    padding: 0 10px;  
     background-color: #fafafa; /* Slightly different shade for the header */
     border-bottom: 1px solid #d1d1d1; /* Light border for subtle separation */
 }
 
 #arrayDisplays {
     text-align: center;
-    padding: 20px; /* More padding for a spacious look */
+    padding: 18px; 
     font-size: 16px;
     margin: 20px auto;
     min-width: 300px;
@@ -47,8 +48,8 @@ html, body {
 }
 
 #footer {
-    text-align: center;
-    padding: 50px;
+    text-align: left;
+    padding: 0 10px;
     background-color: #fafafa; /* Slightly different shade for the footer */
     border-top: 1px solid #d1d1d1; /* Light border for subtle separation */
 }
