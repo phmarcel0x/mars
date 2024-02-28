@@ -9,6 +9,7 @@
             "request": "launch",
             "name": "Open index.html",
             "file": "c:\\Users\\marsp\\WebProjects\\AlgorithmVisualizer\\src\\index.html"
+            
         }
     ]
 }
