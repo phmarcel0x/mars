@@ -1,7 +1,7 @@
 // main.js
 import { selectionSort } from './SortingAlgorithms/selectionSort.js';
 
-const originalArray = [129, 38, 115, 188, 192, 19, 144, 189, 140, 134, 155, 53, 196];
+const originalArray = [129, 38, 115, 188, 192, 19, 144, 189, 140, 134, 155, 53, 196, 38, 115, 188, -100, -10, -34, -200, -133, -123, -52];
 function createBars(arr, containerId) {
     const container = document.getElementById(containerId);
     container.innerHTML = ''; // Clear previous bars
@@ -17,8 +17,8 @@ function createBars(arr, containerId) {
         // Create the bar element
         const bar = document.createElement('div');
         bar.className = 'bar';
-        bar.style.height = `${Math.abs(value) * 2}px`; // Height based on absolute value
-        bar.style.backgroundColor = value >= 0 ? '#007aff' : 'red'; // Color based on positive or negative value
+        bar.style.height = `${Math.abs(value) * 1.5}px`; // Height based on absolute value
+        bar.style.backgroundColor = value >= 0 ? 'black' : 'red'; // Color based on positive or negative value
 
         // Create the value label element
         const valueLabel = document.createElement('div');
@@ -63,9 +63,9 @@ async function visualizeSwap(arr, idx1, idx2, containerId) {
     barContainers[idx1].children[1].textContent = barContainers[idx2].children[1].textContent;
     barContainers[idx2].children[1].textContent = tempText;
 
-    // Reset the color back to blue after swap
-    barContainers[idx1].children[0].style.backgroundColor = 'blue';
-    barContainers[idx2].children[0].style.backgroundColor = 'blue';
+    // Reset the color back to black after swap
+    barContainers[idx1].children[0].style.backgroundColor = 'black';
+    barContainers[idx2].children[0].style.backgroundColor = 'black';
 }
 
 
@@ -82,8 +82,8 @@ async function visualizeComparison(containerId, idx1, idx2) {
         await new Promise(resolve => setTimeout(resolve, getSelectedDelay()));
 
         // Reset the colors after comparison
-        barContainers[idx1].children[0].style.backgroundColor = 'blue';
-        barContainers[idx2].children[0].style.backgroundColor = 'blue';
+        barContainers[idx1].children[0].style.backgroundColor = 'black';
+        barContainers[idx2].children[0].style.backgroundColor = 'black';
     } else {
         // If either bar doesn't exist, log an error or handle it appropriately
         console.error(`Bar at index ${idx1} or ${idx2} is undefined.`);
@@ -99,7 +99,7 @@ function displayArray(arr, containerId) {
 
 function getSelectedDelay() {
     const selectedSpeed = document.getElementById('speedSelector').value;
-    const baseDelay = 50;
+    const baseDelay = 75;
     return baseDelay/selectedSpeed;
 }
 

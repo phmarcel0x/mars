@@ -31,8 +31,8 @@ html, body {
 }
 
 #arrayDisplays {
-    text-align: center;
-    padding: 18px;
+    text-align: left;
+    padding: 0 20px;
     font-size: 16px;
     font-weight: bold;
     margin: 20px auto;
@@ -45,6 +45,8 @@ html, body {
 
 #arrayDisplays span {
     font-weight: normal;
+    display: block;
+    padding-top: 5px;
 }
 
 #visualizationContainer {
@@ -83,6 +85,7 @@ html, body {
 
 #startSortingButton:hover, #startSortingButton:focus, #speedSelectorContainer:hover {
     background-color: orange;
+    transition: background-color 1.3s;
 }
 
 #speedSelectorContainer {
@@ -100,8 +103,9 @@ html, body {
     background-color: white;
     border: 3px solid black;
     border-radius: 18px;
-    appearance: none;
+    appearance: radio;
     transition: border-color 0.3s;
+
 }
 
 #speedSelector:hover {
