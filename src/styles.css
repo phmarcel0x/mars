@@ -7,7 +7,7 @@ html, body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Barlow', sans-serif;
     color: #000000;
     background-color: #f7f7f7;
 }
@@ -15,10 +15,19 @@ html, body {
 #header {
     text-align: left;
     font-size: 14px;
-    padding: 0 24px;
+    padding: 0 22px;
     background-color: #000000;
     color: #ffffff;
     border-bottom: 1px solid #d1d1d1;
+}
+
+#footer {
+    text-align: left;
+    padding: 0 22px;
+    font-size: 14px;
+    background-color: #000000;
+    color: #ffffff;
+    border-top: 1px solid #d1d1d1;
 }
 
 #arrayDisplays {
@@ -27,10 +36,10 @@ html, body {
     font-size: 16px;
     font-weight: bold;
     margin: 20px auto;
-    min-width: 300px;
+    min-width: 0;
     max-width: 80%;
     background-color: #ffffff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border: 3px solid black;  
     border-radius: 8px;
 }
 
@@ -49,15 +58,6 @@ html, body {
     max-width: 80%;
 }
 
-#footer {
-    text-align: left;
-    padding: 0 24px;
-    background-color: #000000;
-    color: #ffffff;
-    border-top: 1px solid #d1d1d1;
-}
-
-/* Button and dropdown styles */
 #controlsContainer {
     display: flex;
     justify-content: center;
@@ -66,45 +66,46 @@ html, body {
     margin: 20px auto;
 }
 
-#startSortingButton {
-    background-color: #000000;
-    color: #ffffff;
+#startSortingButton, #speedSelectorContainer {
+    background-color: white;
+    font-weight: bold;
+    color: black;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: block;
     font-size: 16px;
     cursor: pointer;
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 3px solid black;
+    border-radius: 18px;
     transition: background-color 0.3s;
 }
 
-#startSortingButton:hover, #startSortingButton:focus {
-    background-color: #333333;
+#startSortingButton:hover, #startSortingButton:focus, #speedSelectorContainer:hover {
+    background-color: orange;
 }
 
 #speedSelectorContainer {
-    background-color: #ffffff;
+    background-color: white;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    padding: 10px 20px;
+    padding: 10px 10px;
+    border: 3px solid black;  
 }
 
 #speedSelector {
-    padding: 10px 15px;
+    padding: 8px 8px;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
     background-color: white;
-    border: 1px solid #d1d1d1;
-    border-radius: 8px;
+    border: 3px solid black;
+    border-radius: 18px;
     appearance: none;
     transition: border-color 0.3s;
 }
 
 #speedSelector:hover {
-    border-color: #a1a1a1;
+    border-color: rgba(255, 166, 0, 0.494)
 }
 
 .barContainer {
@@ -146,6 +147,7 @@ html, body {
         margin-bottom: 0;
     }
 }
+
 /* Prevent copyright hyperlink from being highlighted purple when clicked */
 a#copyrightLink:visited {
     color: inherit;
