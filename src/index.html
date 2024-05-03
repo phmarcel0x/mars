@@ -2,6 +2,8 @@
     Modular Algorithm Rendering System (MARS)
     @phmarcel0x
     "It was the mark of a barbarian to destroy something one could not understand.” - Arthur C. Clarke
+
+    index.html
 -->
 
 <!DOCTYPE html>
@@ -22,7 +24,22 @@
         </div>
 
         <!-- Main Container: Contains Array Displays and Controls Container -->
-        <div id="mainContainer" style="display: flex; justify-content: space-between;">
+        <div id="mainContainer">
+
+            <div id="arrayOptionsContainer">
+                <label for="arraySizeSelector">Array Size:</label>
+                <select id="arraySizeSelector">
+                    <!-- Array Size Options -->
+                    <option value="10" selected>10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+
+                <button id="randomizeArrayButton">Randomize Array</button>
+            </div>
+
             <!-- Array Displays Section -->
             <div id="arrayDisplays">
                 <p>Original Array:<br> <span id="originalArray"></span></p>

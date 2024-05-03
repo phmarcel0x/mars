@@ -1,7 +1,11 @@
 // main.js
+
 import { selectionSort } from './SortingAlgorithms/selectionSort.js';
 
-const originalArray = [240, 6, 31, 29, 34, 40, 2, 35, 22, 26, 4, 19, 8, 25, 1, 37, 17, 38, 23, 15, 10, 14, 16, 39, 5, 9, 18, 27, 13, 20, 3, 32, 33, 28, 12, 7, 36, 11, 21, 30];
+// const originalArray = [240, 6, 31, 29, 34, 40, 2, 35, 22, 26, 4, 19, 8, 25, 1, 37, 17, 38, 23, 15, 10, 14, 16, 39, 5, 9, 18, 27, 13, 20, 3, 32, 33, 28, 12, 7, 36, 11, 21, 30];
+
+let originalArray = [];
+
 function createBars(arr, containerId) {
     const container = document.getElementById(containerId);
     container.innerHTML = ''; // Clear previous bars
@@ -90,7 +94,6 @@ async function visualizeComparison(containerId, idx1, idx2) {
     }
 }
 
-
 function displayArray(arr, containerId) {
     const container = document.getElementById(containerId);
     container.innerHTML = arr.join(', ');
@@ -99,8 +102,16 @@ function displayArray(arr, containerId) {
 
 function getSelectedDelay() {
     const selectedSpeed = document.getElementById('speedSelector').value;
-    const baseDelay = 75;
+    const baseDelay = 200;
     return baseDelay/selectedSpeed;
+}
+
+function generateRandomArray(size) {
+    const newArray = [];
+    for (let i = 0; i < size; i++) {
+        newArray.push(Math.floor(Math.random() * 100) + 1); // Generates numbers between 1 and 100
+    }
+    return newArray;
 }
 
 function getSelectedAlgorithm() {
@@ -109,28 +120,37 @@ function getSelectedAlgorithm() {
 
 // Run the sorting algorithm and update the web with visualization
 async function runSortingAlgorithm() {
-    console.log('Sorting algorithm triggered'); // Added for debugging
-
+    console.log('Sorting algorithm triggered');
     const sortButton = document.getElementById('startSortingButton');
     sortButton.disabled = true;
 
-    const arrForSorting = originalArray.slice(); // Copy original array (for immutability)
-    createBars(arrForSorting, 'visualizationContainer');
+    createBars(originalArray, 'visualizationContainer');
+    await selectionSort(originalArray, visualizeSwap, visualizeComparison, 'visualizationContainer');
 
-    await selectionSort(arrForSorting, visualizeSwap, visualizeComparison, 'visualizationContainer');
-
-    displayArray(arrForSorting, 'sortedArray');
+    displayArray(originalArray, 'sortedArray');
     sortButton.disabled = false;
 }
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    originalArray = generateRandomArray(30); // Initialize with default size
     displayArray(originalArray, 'originalArray');
 
-    // Set up the button to start sorting when clicked
+    const arraySizeSelector = document.getElementById('arraySizeSelector');
+    const randomizeButton = document.getElementById('randomizeArrayButton');
+
+    arraySizeSelector.addEventListener('change', () => {
+        originalArray = generateRandomArray(parseInt(arraySizeSelector.value));
+        displayArray(originalArray, 'originalArray');
+    });
+
+    randomizeButton.addEventListener('click', () => {
+        originalArray = generateRandomArray(parseInt(arraySizeSelector.value));
+        displayArray(originalArray, 'originalArray');
+    });
+
     const sortButton = document.getElementById('startSortingButton');
     sortButton.addEventListener('click', runSortingAlgorithm);
-
 });
 
 document.addEventListener('DOMContentLoaded', function() {
