@@ -1,7 +1,7 @@
 // main.js
 import { selectionSort } from './SortingAlgorithms/selectionSort.js';
 
-const originalArray = [129, 38, 115, 188, 192, 19, 144, 189, 140, 134, 155, 53, 196, 38, 115, 188, -100, -10, -34, -200, -133, -123, -52];
+const originalArray = [240, 6, 31, 29, 34, 40, 2, 35, 22, 26, 4, 19, 8, 25, 1, 37, 17, 38, 23, 15, 10, 14, 16, 39, 5, 9, 18, 27, 13, 20, 3, 32, 33, 28, 12, 7, 36, 11, 21, 30];
 function createBars(arr, containerId) {
     const container = document.getElementById(containerId);
     container.innerHTML = ''; // Clear previous bars

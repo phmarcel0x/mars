@@ -21,35 +21,31 @@
             <h1>modular algorithm rendering system (mars)</h1>
         </div>
 
-        <!-- Array Displays Section -->
-        <!-- Original Array Display: Shows the unsorted array -->
-        <div id="arrayDisplays">
-            <p>Original Array:<br> <span id="originalArray"></span></p>
-            <p>Sorted Array:<br> <span id="sortedArray"></span></p>
-        </div>
-
-        <!-- Sorted Array Display: Shows the sorted array post-processing -->
-        <!-- <div id="arrayDisplays">
-            
-        </div> -->
-
-        <!-- Control Panel for User Interaction -->
-        <div id="controlsContainer">
-            <!-- Speed Selector: Allows users to adjust sorting speed -->
-            <div id="speedSelectorContainer">
-                <label for="speedSelector">SPEED:<label>
-                <select id="speedSelector">
-                    <!-- Speed Options -->
-                    <option value="0.25">0.25x</option>
-                    <option value="0.5">0.5x</option>
-                    <option value="1" selected>normal</option>
-                    <option value="1.5">1.5x</option>
-                    <!-- <option value="1.75">1.75x</option> -->
-                    <option value="2">2x</option>
-                </select>
+        <!-- Main Container: Contains Array Displays and Controls Container -->
+        <div id="mainContainer" style="display: flex; justify-content: space-between;">
+            <!-- Array Displays Section -->
+            <div id="arrayDisplays">
+                <p>Original Array:<br> <span id="originalArray"></span></p>
+                <p>Sorted Array:<br> <span id="sortedArray"></span></p>
             </div>
-            <!-- Sorting Start Button -->
-            <button id="startSortingButton">Visualize!</button>
+
+            <!-- Control Panel for User Interaction -->
+            <div id="controlsContainer">
+                <!-- Speed Selector: Allows users to adjust sorting speed -->
+                <div id="speedSelectorContainer">
+                    <label for="speedSelector">SPEED:<label>
+                    <select id="speedSelector">
+                        <!-- Speed Options -->
+                        <option value="0.25">0.25x</option>
+                        <option value="0.5">0.5x</option>
+                        <option value="1" selected>normal</option>
+                        <option value="1.5">1.5x</option>
+                        <option value="2">2x</option>
+                    </select>
+                </div>
+                <!-- Sorting Start Button -->
+                <button id="startSortingButton">Visualize!</button>
+            </div>
         </div>
 
         <!-- Visualization Container: Used for rendering sorting algorithm process -->
