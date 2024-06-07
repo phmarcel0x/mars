@@ -9,50 +9,39 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Head Section: Contains Meta Information, Title, and Linked Resources -->
         <title>mars</title>
-        <!-- Link to External CSS File -->
         <link rel="stylesheet" href="styles.css">
-        <!-- Defer JavaScript Execution to Ensure DOM is Loaded -->
         <script type="module" src="main.js" defer></script>
     </head>
-
     <body>
-        <!-- Header Section with Main Title -->
         <div id="header">
             <h1>modular algorithm rendering system (mars)</h1>
         </div>
 
-        <!-- Main Container: Contains Array Displays and Controls Container -->
         <div id="mainContainer">
-
-            <div id="arrayOptionsContainer">
-                <label for="arraySizeSelector">Array Size:</label>
-                <select id="arraySizeSelector">
-                    <!-- Array Size Options -->
-                    <option value="10" selected>10</option>
-                    <option value="20">20</option>
-                    <option value="30">30</option>
-                    <option value="40">40</option>
-                    <option value="50">50</option>
-                </select>
-
-                <button id="randomizeArrayButton">Randomize Array</button>
+            <div id="topContainer">
+                <div id="arrayOptionsContainer">
+                    <label for="arraySizeSelector">Array Size:</label>
+                    <select id="arraySizeSelector">
+                        <option value="10" selected>10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                    </select>
+                    <button id="randomizeArrayButton">Randomize Array</button>
+                </div>
+                
+                <div id="arrayDisplays">
+                    <p>Original Array:<br> <span id="originalArray"></span></p>
+                    <p>Sorted Array:<br> <span id="sortedArray"></span></p>
+                </div>
             </div>
 
-            <!-- Array Displays Section -->
-            <div id="arrayDisplays">
-                <p>Original Array:<br> <span id="originalArray"></span></p>
-                <p>Sorted Array:<br> <span id="sortedArray"></span></p>
-            </div>
-
-            <!-- Control Panel for User Interaction -->
             <div id="controlsContainer">
-                <!-- Speed Selector: Allows users to adjust sorting speed -->
                 <div id="speedSelectorContainer">
                     <label for="speedSelector">SPEED:<label>
                     <select id="speedSelector">
-                        <!-- Speed Options -->
                         <option value="0.25">0.25x</option>
                         <option value="0.5">0.5x</option>
                         <option value="1" selected>normal</option>
@@ -60,18 +49,15 @@
                         <option value="2">2x</option>
                     </select>
                 </div>
-                <!-- Sorting Start Button -->
                 <button id="startSortingButton">Visualize!</button>
             </div>
         </div>
 
-        <!-- Visualization Container: Used for rendering sorting algorithm process -->
         <div id="visualizationContainer"></div>
 
-        <!-- Footer Section -->
         <div id="footer">
             <p>
-                <a id="copyrightLink" href = "https://github.com/phmarcel0x/dsa-algorithm-visualizer/blob/main/LICENSE">Copyright &copy; 2024 Marcelo Hernandez</a>
+                <a id="copyrightLink" href="https://github.com/phmarcel0x/dsa-algorithm-visualizer/blob/main/LICENSE">Copyright &copy; 2024 Marcelo Hernandez</a>
             </p>
         </div>
     </body>

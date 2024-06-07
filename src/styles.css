@@ -20,67 +20,46 @@ html, body {
     color: #ffffff;
     border-color: #d1d1d1;
     border-style: solid;
-    border-width: 0 0 1px 0; /* only bottom border for header */
+    border-width: 0 0 1px 0;
 }
 
 #footer {
-    border-width: 1px 0 0 0; /* only top border for footer */
+    border-width: 1px 0 0 0;
 }
 
 #mainContainer {
     display: flex;
-    justify-content: space-around; /* Changed for better space distribution */
-    align-items: center; /* Align items vertically in the center */
-    padding: 20px 0; /* Top and bottom padding */
-    flex-wrap: wrap; /* Allows children to wrap to the next line on small screens */
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between topContainer and controlsContainer */
 }
 
-#arrayDisplays {
-    flex: 1 1 300px; /* Adjust the size to flex with the available space */
-    margin: 0 20px; /* Horizontal margins for spacing */
-    text-align: left;
-    padding: 10px 22px;
-    font-size: 16px;
-    background-color: #ffffff;
-    border: 3px solid black;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-#arrayDisplays span {
-    font-weight: normal;
-    display: block;
-    padding-top: 5px;
-}
-
-#visualizationContainer {
-    flex-grow: 1;
+#topContainer {
     display: flex;
-    flex-direction: row;  
-    justify-content: center;
-    align-items: flex-end;
-    margin: 20px auto;
-    padding: 0 22px;
-    max-width: 80%;
+    justify-content: space-between;
+    width: 80%; /* Adjust as needed */
+    flex-wrap: wrap;
+    gap: 20px; /* Space between arrayOptionsContainer and arrayDisplays */
 }
 
-#arrayOptionsContainer {    
+#arrayOptionsContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 10px;  
     margin: 10px;
-    padding: 10px;
+    padding: 6px;
     font-size: 16px;
     font-weight: bold;
     background-color: white;
     border: 3px solid black;
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
-
 #randomizeArrayButton {
-    padding: 8px 16px;
+    padding: 8px 12px;
     font-size: 16px;
     cursor: pointer;
     background-color: white;
@@ -94,7 +73,24 @@ html, body {
     background-color: white;
     border: 3px solid black;
     border-radius: 18px;
-    appearance: none; /* Changed from radio to none */
+    appearance: none;
+}
+
+#arrayDisplays {
+    flex: 1;
+    text-align: left;
+    padding: 10px 22px;
+    font-size: 16px;
+    background-color: #ffffff;
+    border: 3px solid black;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+#arrayDisplays span {
+    font-weight: normal;
+    display: block;
+    padding-top: 5px;
 }
 
 #controlsContainer {
@@ -102,10 +98,27 @@ html, body {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    flex: 1 1 200px; /* Flex grow, flex shrink, and flex-basis settings */
+    flex: 1 1 200px;
 }
 
-#startSortingButton, #speedSelectorContainer #randomizeArrayButton {
+#speedSelectorContainer {
+    background-color: white;
+    border-radius: 6px;
+    padding: 10px 10px;
+    border: 3px solid black;
+    font-weight: bold;
+}
+
+#speedSelector {
+    padding: 8px 8px;
+    font-size: 16px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 18px;
+    appearance: none;
+}
+
+#startSortingButton {
     font-weight: bold;
     color: black;
     padding: 10px 20px;
@@ -120,29 +133,20 @@ html, body {
     transition: background-color 0.3s;
 }
 
-#startSortingButton:hover, #startSortingButton:focus, #speedSelectorContainer:hover, #randomizeArrayButton:hover {
+#startSortingButton:hover, #startSortingButton:focus, #speedSelector:hover, #randomizeArrayButton:hover, #arraySizeSelector:hover {
     background-color: orange;
     transition: background-color 1.3s;
 }
 
-#speedSelectorContainer {
-    background-color: white;
-    border-radius: 8px;
-    padding: 10px 10px;
-    border: 3px solid black;  
-}
-
-#speedSelector {
-    padding: 8px 8px;
-    font-size: 16px;
-    background-color: white;
-    border: 3px solid black;
-    border-radius: 18px;
-    appearance: none; /* Changed from radio to none */
-}
-
-#speedSelector:hover {
-    border-color: rgba(255, 166, 0, 0.494)
+#visualizationContainer {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 20px auto;
+    padding: 0 22px;
+    max-width: 80%;
 }
 
 .barContainer {
@@ -169,12 +173,15 @@ html, body {
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
-    #arrayDisplays, #visualizationContainer {
+    #topContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+    #arrayOptionsContainer, #arrayDisplays {
         max-width: 95%;
-        padding: 0 15px;
     }
     #controlsContainer {
-        flex-direction: column;
+        width: 100%;
     }
     #startSortingButton, #speedSelectorContainer {
         width: 100%;
