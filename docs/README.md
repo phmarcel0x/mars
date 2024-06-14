@@ -10,7 +10,7 @@ The Modular Algorithm Rendering System is a personal project developed to visual
 ### Features
 
 - **Interactive Visualizations:** See sorting and searching algorithms in action with real-time animations.
-- **User-Friendly Interface:** Easily select algorithms and adjust speed parameter to understand their behavior on different datasets.
+- **User-Friendly Interface:** Easily select algorithms and adjust speed parameter to understand their behavior on different arrays.
 - **Educational Resource:** Enhances understanding of algorithm efficiency and complexity through direct observation and comparison.
 
 ### How to Use
