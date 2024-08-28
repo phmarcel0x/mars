@@ -1,9 +1,9 @@
 // main.js
 
 // Import the sorting algorithms
-import { selectionSort } from './SortingAlgorithms/selectionSort.js';
-import { bubbleSort } from './SortingAlgorithms/bubbleSort.js';
-import { insertionSort } from './SortingAlgorithms/insertionSort.js'; 
+import { selectionSort } from './selectionSort.js';
+import { bubbleSort } from './bubbleSort.js';
+import { insertionSort } from './insertionSort.js'; 
 // import { mergeSort } from './SortingAlgorithms/mergeSort.js';
 
 let originalArray = [];

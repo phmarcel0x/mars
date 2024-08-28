@@ -10,5 +10,5 @@
     },
     "include": [
         "src/**/*"
-    ]
+, "bubbleSort.js", "insertionSort.js", "mergeSort.js", "selectionSort.js"    ]
 }
