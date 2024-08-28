@@ -102,7 +102,7 @@ html, body {
     flex: 1 1 100px;
 }
 
-#speedSelectorContainer {
+#speedSelectorContainer, #algorithmSelectorContainer {
     background-color: white;
     border-radius: 6px;
     padding: 10px 10px;
@@ -110,13 +110,14 @@ html, body {
     font-weight: bold;
 }
 
-#speedSelector {
-    padding: 8px 8px;
+#speedSelector, #algorithmSelector {
+    padding: 10px 10px;
     font-size: 16px;
     background-color: white;
     border: 3px solid black;
     border-radius: 18px;
     appearance: none;
+    text-align: center;
 }
 
 #startSortingButton, #skipSortingButton {
@@ -134,7 +135,7 @@ html, body {
     transition: background-color 0.3s;
 }
 
-#startSortingButton:hover, #startSortingButton:focus, #speedSelector:hover, #randomizeArrayButton:hover, #arraySizeSelector:hover, #skipSortingButton:hover{
+#startSortingButton:hover, #startSortingButton:focus, #speedSelector:hover, #randomizeArrayButton:hover, #arraySizeSelector:hover, #skipSortingButton:hover, #algorithmSelector:hover {
     background-color: orange;
     transition: background-color 1.3s;
 }

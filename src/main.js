@@ -2,8 +2,9 @@
 
 // Import the sorting algorithms
 import { selectionSort } from './SortingAlgorithms/selectionSort.js';
-import { bubbleSort } from './SortingAlgorithms/bubbleSort.js'; // Assuming this file exists
-import { insertionSort } from './SortingAlgorithms/insertionSort.js'; // Assuming this file exists
+import { bubbleSort } from './SortingAlgorithms/bubbleSort.js';
+import { insertionSort } from './SortingAlgorithms/insertionSort.js'; 
+// import { mergeSort } from './SortingAlgorithms/mergeSort.js';
 
 let originalArray = [];
 let skipToEnd = false; // Flag to control skipping the visualization
@@ -107,6 +108,7 @@ const algorithms = {
     selectionSort,
     bubbleSort,
     insertionSort,
+    // mergeSort,
     // Add more algorithms here as needed
 };
 
