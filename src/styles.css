@@ -25,6 +25,7 @@ html, body {
 
 #footer {
     border-width: 1px 0 0 0;
+    background-color: white;
 }
 
 #mainContainer {
@@ -95,10 +96,10 @@ html, body {
 
 #controlsContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 10px;
-    flex: 1 1 200px;
+    flex: 1 1 100px;
 }
 
 #speedSelectorContainer {
@@ -118,7 +119,7 @@ html, body {
     appearance: none;
 }
 
-#startSortingButton {
+#startSortingButton, #skipSortingButton {
     font-weight: bold;
     color: black;
     padding: 10px 20px;
@@ -133,7 +134,7 @@ html, body {
     transition: background-color 0.3s;
 }
 
-#startSortingButton:hover, #startSortingButton:focus, #speedSelector:hover, #randomizeArrayButton:hover, #arraySizeSelector:hover {
+#startSortingButton:hover, #startSortingButton:focus, #speedSelector:hover, #randomizeArrayButton:hover, #arraySizeSelector:hover, #skipSortingButton:hover{
     background-color: orange;
     transition: background-color 1.3s;
 }
@@ -192,7 +193,12 @@ html, body {
     }
 }
 
-/* Prevent copyright hyperlink from being highlighted purple when clicked */
-a#copyrightLink:visited {
-    color: inherit;
+a, a:visited {
+    color: black;
+    text-decoration: none; /* Removes the underline */
+}
+
+a:hover, a:focus {
+    text-decoration: underline; /* Optional: add underline on hover if desired */
+    color: black; /* Keeps the hover color consistent */
 }

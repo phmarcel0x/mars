@@ -1,96 +1,80 @@
 // main.js
 
+// Import the sorting algorithms
 import { selectionSort } from './SortingAlgorithms/selectionSort.js';
-
-// const originalArray = [240, 6, 31, 29, 34, 40, 2, 35, 22, 26, 4, 19, 8, 25, 1, 37, 17, 38, 23, 15, 10, 14, 16, 39, 5, 9, 18, 27, 13, 20, 3, 32, 33, 28, 12, 7, 36, 11, 21, 30];
+import { bubbleSort } from './SortingAlgorithms/bubbleSort.js'; // Assuming this file exists
+import { insertionSort } from './SortingAlgorithms/insertionSort.js'; // Assuming this file exists
 
 let originalArray = [];
+let skipToEnd = false; // Flag to control skipping the visualization
 
 function createBars(arr, containerId) {
     const container = document.getElementById(containerId);
     container.innerHTML = ''; // Clear previous bars
 
-    arr.forEach((value, index) => {
-        // Create a container for each bar and its value
+    arr.forEach((value) => {
         const barContainer = document.createElement('div');
         barContainer.className = 'barContainer';
         barContainer.style.display = 'flex';
         barContainer.style.flexDirection = 'column';
         barContainer.style.alignItems = 'center';
 
-        // Create the bar element
         const bar = document.createElement('div');
         bar.className = 'bar';
-        bar.style.height = `${Math.abs(value) * 1.5}px`; // Height based on absolute value
-        bar.style.backgroundColor = value >= 0 ? 'black' : 'red'; // Color based on positive or negative value
+        bar.style.height = `${Math.abs(value) * 1.5}px`;
+        bar.style.backgroundColor = value >= 0 ? 'black' : 'red';
 
-        // Create the value label element
         const valueLabel = document.createElement('div');
         valueLabel.className = 'valueLabel';
-        valueLabel.textContent = value; // Set the text content to the value of the element
+        valueLabel.textContent = value;
 
-        // Append the bar and value label to the bar container
         barContainer.appendChild(bar);
         barContainer.appendChild(valueLabel);
-
-        // Append the bar container to the main container
         container.appendChild(barContainer);
     });
 }
 
-
 async function visualizeSwap(arr, idx1, idx2, containerId) {
-    if (idx1 === idx2) return;
+    if (idx1 === idx2 || skipToEnd) return;
 
     const container = document.getElementById(containerId);
-    const barContainers = container.getElementsByClassName('barContainer'); // Get the barContainers
+    const barContainers = container.getElementsByClassName('barContainer');
 
-    // Swap the elements in the array
     let temp = arr[idx1];
     arr[idx1] = arr[idx2];
     arr[idx2] = temp;
 
-    // Visually highlight the bars being swapped
-    barContainers[idx1].children[0].style.backgroundColor = 'orange'; // First child is the bar
+    barContainers[idx1].children[0].style.backgroundColor = 'orange';
     barContainers[idx2].children[0].style.backgroundColor = 'orange';
 
-    // Wait for some time to visualize swap
     await new Promise(resolve => setTimeout(resolve, getSelectedDelay()));
 
-    // Swap the DOM elements by swapping their heights
     let tempHeight = barContainers[idx1].children[0].style.height;
     barContainers[idx1].children[0].style.height = barContainers[idx2].children[0].style.height;
     barContainers[idx2].children[0].style.height = tempHeight;
 
-    // Swap the textContent of the value labels
     let tempText = barContainers[idx1].children[1].textContent;
     barContainers[idx1].children[1].textContent = barContainers[idx2].children[1].textContent;
     barContainers[idx2].children[1].textContent = tempText;
 
-    // Reset the color back to black after swap
     barContainers[idx1].children[0].style.backgroundColor = 'black';
     barContainers[idx2].children[0].style.backgroundColor = 'black';
 }
 
-
 async function visualizeComparison(containerId, idx1, idx2) {
+    if (skipToEnd) return;
+
     const container = document.getElementById(containerId);
-    const barContainers = container.getElementsByClassName('barContainer'); // Get the barContainers
+    const barContainers = container.getElementsByClassName('barContainer');
 
     if (barContainers[idx1] && barContainers[idx2]) {
-        // Highlight bars being compared
         barContainers[idx1].children[0].style.backgroundColor = 'orange';
         barContainers[idx2].children[0].style.backgroundColor = 'orange';
 
-        // Wait for some time to visualize comparison
         await new Promise(resolve => setTimeout(resolve, getSelectedDelay()));
 
-        // Reset the colors after comparison
         barContainers[idx1].children[0].style.backgroundColor = 'black';
         barContainers[idx2].children[0].style.backgroundColor = 'black';
-    } else {
-        // If either bar doesn't exist, log an error or handle it appropriately
-        console.error(`Bar at index ${idx1} or ${idx2} is undefined.`);
     }
 }
 
@@ -99,18 +83,18 @@ function displayArray(arr, containerId) {
     container.innerHTML = arr.join(', ');
 }
 
-
 function getSelectedDelay() {
     const selectedSpeed = document.getElementById('speedSelector').value;
     const baseDelay = 200;
-    return baseDelay/selectedSpeed;
+    return baseDelay / selectedSpeed;
 }
 
 function generateRandomArray(size) {
     const newArray = [];
     for (let i = 0; i < size; i++) {
-        newArray.push(Math.floor(Math.random() * 100) + 1); // Generates numbers between 1 and 100
+        newArray.push(Math.floor(Math.random() * 100) + 1);
     }
+    document.getElementById('sortedArray').innerHTML = '';
     return newArray;
 }
 
@@ -118,22 +102,47 @@ function getSelectedAlgorithm() {
     return document.getElementById('algorithmSelector').value;
 }
 
-// Run the sorting algorithm and update the web with visualization
+// Map the algorithm names to their respective functions
+const algorithms = {
+    selectionSort,
+    bubbleSort,
+    insertionSort,
+    // Add more algorithms here as needed
+};
+
 async function runSortingAlgorithm() {
     console.log('Sorting algorithm triggered');
     const sortButton = document.getElementById('startSortingButton');
+    const skipButton = document.getElementById('skipSortingButton');
     sortButton.disabled = true;
+    skipButton.disabled = false;
+    skipToEnd = false;
+
+    const selectedAlgorithm = getSelectedAlgorithm();
+    const sortingFunction = algorithms[selectedAlgorithm];
 
     createBars(originalArray, 'visualizationContainer');
-    await selectionSort(originalArray, visualizeSwap, visualizeComparison, 'visualizationContainer');
+
+    // Run the selected sorting algorithm with visualization unless skipToEnd is triggered
+    await sortingFunction(originalArray, visualizeSwap, visualizeComparison, 'visualizationContainer');
 
     displayArray(originalArray, 'sortedArray');
+    createBars(originalArray, 'visualizationContainer'); // Ensure the final state is shown
+
     sortButton.disabled = false;
+    skipButton.disabled = true;
 }
 
+function skipSorting() {
+    // Set skipToEnd to true and instantly sort the array without visualization
+    skipToEnd = true;
+    originalArray.sort((a, b) => a - b); // Perform sorting immediately
+    displayArray(originalArray, 'sortedArray');
+    createBars(originalArray, 'visualizationContainer'); // Display the final sorted bars
+}
 
 document.addEventListener('DOMContentLoaded', () => {
-    originalArray = generateRandomArray(30); // Initialize with default size
+    originalArray = generateRandomArray(30);
     displayArray(originalArray, 'originalArray');
 
     const arraySizeSelector = document.getElementById('arraySizeSelector');
@@ -151,9 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const sortButton = document.getElementById('startSortingButton');
     sortButton.addEventListener('click', runSortingAlgorithm);
-});
 
-document.addEventListener('DOMContentLoaded', function() {
-    var copyrightLink = document.getElementById('copyrightLink');
-    copyrightLink.setAttribute('target', '_blank');
+    const skipButton = document.getElementById('skipSortingButton');
+    skipButton.addEventListener('click', skipSorting);
 });
